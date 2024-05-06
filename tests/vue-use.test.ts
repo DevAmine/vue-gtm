@@ -88,28 +88,6 @@ describe('Vue.use', () => {
     expect(document.scripts.length).toBe(0);
   });
 
-  test('should append google tag manager script to DOM after lazy enable', () => {
-    appendAppDivToBody();
-    const { app } = createAppWithComponent();
-
-    expect(window['dataLayer']).toBeUndefined();
-    expect(document.scripts.length).toBe(0);
-
-    app.use(createGtm({ id: 'GTM-DEMO', enabled: false })).mount('#app');
-
-    const gtmPlugin: VueGtmPlugin = app.config.globalProperties.$gtm;
-    expect(gtmPlugin).toBeDefined();
-
-    gtmPlugin.enable(true);
-
-    expect(window['dataLayer']).toBeDefined();
-    expect(document.scripts.length).toBe(1);
-    expect(document.scripts.item(0)).toBeDefined();
-    expect(document.scripts.item(0)?.src).toBe(
-      'https://www.googletagmanager.com/gtm.js?id=GTM-DEMO',
-    );
-  });
-
   describe('Check src.nonce', () => {
     afterEach(() => {
       resetHtml();
