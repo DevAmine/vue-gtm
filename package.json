@@ -67,7 +67,7 @@
     "google"
   ],
   "dependencies": {
-    "@gtm-support/core": "^2.3.1"
+    "@gtm-support/core": "^2.0.0"
   },
   "devDependencies": {
     "@types/node": "~20.11.16",
