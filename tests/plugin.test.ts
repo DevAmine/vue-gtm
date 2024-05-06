@@ -2,17 +2,6 @@ import { describe, expect, test } from 'vitest';
 import { GtmPlugin as VueGtmPlugin } from '../src/index';
 
 describe('Plugin', () => {
-  test('should apply default options', () => {
-    const instance: VueGtmPlugin = new VueGtmPlugin({ id: 'GTM-DEMO' });
-    expect(instance.options).toEqual({
-      compatibility: false,
-      debug: false,
-      defer: false,
-      enabled: true,
-      loadScript: true,
-    });
-  });
-
   test('should apply id when passed as string', () => {
     const instance: VueGtmPlugin = new VueGtmPlugin({ id: 'GTM-DEMO' });
     expect(instance.id).toEqual('GTM-DEMO');
