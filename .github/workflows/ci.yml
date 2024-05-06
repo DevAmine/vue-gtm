@@ -65,7 +65,7 @@ jobs:
 
       - name: Prepare
         run: |
-          pnpm install --frozen-lockfile
+          pnpm install
           pnpm run build
 
       - name: Lint
