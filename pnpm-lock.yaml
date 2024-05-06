@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@gtm-support/core':
-    specifier: ^2.0.0
-    version: 2.2.0
+    specifier: ^2.3.1
+    version: 2.3.1
 
 optionalDependencies:
   vue-router:
