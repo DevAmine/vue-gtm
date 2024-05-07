@@ -1,6 +1,6 @@
 {
   "name": "gtm-support-tours",
-  "version": "2.2.1",
+  "version": "2.5.1",
   "description": "Simple implementation of Google Tag Manager for Vue - fixed version",
   "scripts": {
     "clean": "rimraf coverage .eslintcache dist pnpm-lock.yaml node_modules",

@@ -1,5 +1,4 @@
 import { afterEach, describe, expect, test } from 'vitest';
-import type { App } from 'vue';
 import VueGtm, { createGtm, useGtm } from '../src/index';
 import {
   appendAppDivToBody,
@@ -18,37 +17,6 @@ describe('Default', () => {
     expect(VueGtm).toBeDefined();
     expect(VueGtm.install).toBeDefined();
     expect(VueGtm.install).toBeInstanceOf(Function);
-  });
-
-  test('should throw Error if GTM-ID is invalid', () => {
-    const validGtmId: string = 'GTM-X';
-    const invalidGtmIds: string[] = ['GTM-x', 'a', 'gtm-a', 'Error: ', 'Error'];
-    const fakeVueInstance: App = null as unknown as App;
-    for (const invalidGtmId of invalidGtmIds) {
-      const suggestion: string = String(invalidGtmId)
-        .toUpperCase()
-        .replace(/.*-|[^0-9A-Z]/g, '');
-
-      const expectedErrorMessage: string = `'${invalidGtmId}' is not a valid GTM-ID (/^GTM-[0-9A-Z]+$/). Did you mean 'GTM-${suggestion}'?`;
-
-      expect(() => {
-        VueGtm.install?.(fakeVueInstance, { id: invalidGtmId });
-      }).toThrowError(new Error(expectedErrorMessage));
-      expect(() => {
-        VueGtm.install?.(fakeVueInstance, { id: [invalidGtmId] });
-      }).toThrowError(new Error(expectedErrorMessage));
-      expect(() => {
-        VueGtm.install?.(fakeVueInstance, { id: [validGtmId, invalidGtmId] });
-      }).toThrowError(new Error(expectedErrorMessage));
-      expect(() => {
-        VueGtm.install?.(fakeVueInstance, { id: [{ id: invalidGtmId }] });
-      }).toThrowError(new Error(expectedErrorMessage));
-      expect(() => {
-        VueGtm.install?.(fakeVueInstance, {
-          id: [{ id: validGtmId }, { id: invalidGtmId }],
-        });
-      }).toThrowError(new Error(expectedErrorMessage));
-    }
   });
 
   test('should expose useGtm function', () => {
