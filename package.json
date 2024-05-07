@@ -1,5 +1,5 @@
 {
-  "name": "@fixed-gtm-support/vue-gtm",
+  "name": "gtm-support-tours",
   "version": "2.2.1",
   "description": "Simple implementation of Google Tag Manager for Vue - fixed version",
   "scripts": {
