@@ -1,10 +1,3 @@
-import type {
-  GtmIdContainer,
-  GtmQueryParams,
-  GtmSupportOptions,
-  LoadScriptOptions,
-} from '@gtm-support/core';
-import { GtmSupport as GtmPlugin, loadScript } from '@gtm-support/core';
 import type { App, Plugin } from 'vue';
 import { nextTick } from 'vue';
 import type {
@@ -13,6 +6,13 @@ import type {
   RouteLocationNormalized,
   Router,
 } from 'vue-router';
+import type {
+  GtmIdContainer,
+  GtmQueryParams,
+  GtmSupportOptions,
+  LoadScriptOptions,
+} from './gtm-plugin';
+import { GtmSupport as GtmPlugin, loadScript } from './gtm-plugin';
 
 // eslint-disable-next-line jsdoc/require-jsdoc
 type IgnoredViews =
@@ -217,12 +217,7 @@ export type VueGtmPlugin = Plugin;
 
 const _default: VueGtmPlugin = { install };
 
-export {
-  GtmSupport,
-  assertIsGtmId,
-  hasScript,
-  loadScript,
-} from '@gtm-support/core';
+export { GtmSupport, assertIsGtmId, hasScript, loadScript } from './gtm-plugin';
 export type {
   DataLayerObject,
   GtmIdContainer,
@@ -230,7 +225,7 @@ export type {
   GtmSupportOptions,
   LoadScriptOptions,
   TrackEventOptions,
-} from '@gtm-support/core';
+} from './gtm-plugin';
 export { GtmPlugin };
 export default _default;
 
